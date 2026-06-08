@@ -1,0 +1,244 @@
+// Frontend styles for Category Display for WooCommerce
+
+.cat-display-block {
+	padding: 20px 0;
+
+	.cat-display-item {
+		display: block;
+		text-decoration: none;
+		background: #fff;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+		transition: all 0.3s ease;
+		height: 100%;
+
+		&:hover {
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+			transform: translateY(-4px);
+
+			.cat-display-image img {
+				transform: scale(1.05);
+			}
+		}
+
+		.cat-display-image {
+			position: relative;
+			width: 100%;
+			padding-top: 100%;
+			overflow: hidden;
+			background: #f1f5f9;
+
+			img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.3s ease;
+			}
+
+			.cat-display-placeholder-img {
+				position: absolute;
+				inset: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				.dashicons {
+					font-size: 48px;
+					width: 48px;
+					height: 48px;
+					color: #94a3b8;
+				}
+			}
+		}
+
+		.cat-display-content {
+			padding: 15px;
+			text-align: center;
+
+			.cat-display-title {
+				margin: 0 0 5px;
+				font-size: 16px;
+				font-weight: 600;
+				color: #1e293b;
+				line-height: 1.4;
+			}
+
+			.cat-display-count {
+				display: block;
+				font-size: 13px;
+				color: #64748b;
+			}
+		}
+	}
+
+	// Grid Layout
+	&.cat-display-layout-grid {
+		.cat-display-grid {
+			display: grid;
+			gap: 20px;
+
+			@media (max-width: 640px) {
+				grid-template-columns: repeat(1, 1fr);
+			}
+		}
+
+		&.cat-display-cols-1 .cat-display-grid {
+			grid-template-columns: repeat(1, 1fr);
+		}
+
+		&.cat-display-cols-2 .cat-display-grid {
+			grid-template-columns: repeat(1, 1fr);
+
+			@media (min-width: 640px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		&.cat-display-cols-3 .cat-display-grid {
+			grid-template-columns: repeat(1, 1fr);
+
+			@media (min-width: 640px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			@media (min-width: 1024px) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+
+		&.cat-display-cols-4 .cat-display-grid {
+			grid-template-columns: repeat(2, 1fr);
+
+			@media (min-width: 768px) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+			@media (min-width: 1024px) {
+				grid-template-columns: repeat(4, 1fr);
+			}
+		}
+
+		&.cat-display-cols-5 .cat-display-grid {
+			grid-template-columns: repeat(2, 1fr);
+
+			@media (min-width: 768px) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+			@media (min-width: 1024px) {
+				grid-template-columns: repeat(5, 1fr);
+			}
+		}
+
+		&.cat-display-cols-6 .cat-display-grid {
+			grid-template-columns: repeat(2, 1fr);
+
+			@media (min-width: 640px) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+			@media (min-width: 1024px) {
+				grid-template-columns: repeat(6, 1fr);
+			}
+		}
+	}
+
+	// Slider Layout
+	&.cat-display-layout-slider {
+		.swiper {
+			padding: 10px 5px 40px;
+			margin: -10px -5px -40px;
+
+			.swiper-slide {
+				height: auto;
+
+				.cat-display-item {
+					height: 100%;
+				}
+			}
+
+			.swiper-button-prev,
+			.swiper-button-next {
+				color: #7e22ce;
+				width: 40px;
+				height: 40px;
+				background: #fff;
+				border-radius: 50%;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+				&::after {
+					font-size: 18px;
+					font-weight: 700;
+				}
+
+				&:hover {
+					background: #7e22ce;
+					color: #fff;
+				}
+
+				&.swiper-button-disabled {
+					opacity: 0.35;
+				}
+			}
+
+			.swiper-button-prev { left: 0; }
+			.swiper-button-next { right: 0; }
+
+			.swiper-pagination {
+				bottom: 10px;
+
+				.swiper-pagination-bullet {
+					width: 10px;
+					height: 10px;
+					background: #cbd5e1;
+					opacity: 1;
+					transition: all 0.3s ease;
+
+					&.swiper-pagination-bullet-active {
+						background: #7e22ce;
+						width: 24px;
+						border-radius: 5px;
+					}
+				}
+			}
+		}
+	}
+
+	// Error / empty states
+	.cat-display-error,
+	.cat-display-empty {
+		padding: 40px;
+		text-align: center;
+		background: #fef2f2;
+		border: 1px solid #fecaca;
+		border-radius: 8px;
+		color: #991b1b;
+	}
+}
+
+@media (max-width: 640px) {
+	.cat-display-block {
+		.cat-display-item {
+			.cat-display-content {
+				padding: 12px;
+
+				.cat-display-title { font-size: 14px; }
+				.cat-display-count { font-size: 12px; }
+			}
+		}
+
+		&.cat-display-layout-slider {
+			.swiper-button-prev,
+			.swiper-button-next {
+				width: 32px;
+				height: 32px;
+
+				&::after { font-size: 14px; }
+			}
+		}
+	}
+}

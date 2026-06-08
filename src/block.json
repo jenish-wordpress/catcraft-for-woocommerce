@@ -1,0 +1,55 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "custom/catcraft-for-woocommerce",
+	"version": "1.0.0",
+	"title": "CatCraft for WooCommerce",
+	"category": "woocommerce",
+	"icon": "grid-view",
+	"description": "Display product categories in grid or slider layout with full customisation.",
+	"keywords": ["category", "grid", "slider", "products", "woocommerce"],
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"attributes": {
+		"layout": {
+			"type": "string",
+			"default": "grid"
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"limit": {
+			"type": "number",
+			"default": 6
+		},
+		"showAll": {
+			"type": "boolean",
+			"default": false
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "name"
+		},
+		"order": {
+			"type": "string",
+			"default": "ASC"
+		},
+		"showCount": {
+			"type": "boolean",
+			"default": false
+		},
+		"hideEmpty": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"textdomain": "catcraft-for-woocommerce",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

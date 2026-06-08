@@ -1,0 +1,10 @@
+/* CatCraft for WooCommerce -- extra frontend styles */
+
+.cat-display-layout-slider .swiper:not(.swiper-initialized) {
+  opacity: 0.6;
+}
+
+.cat-display-layout-slider .swiper.swiper-initialized {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
